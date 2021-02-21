@@ -92,13 +92,13 @@ public class MySinglyLinkedList {
         if(currentNode!=null){
             if(pos==0){
                 list.head = currentNode.next;
-                System.out.println("element at position" +pos + " has been deleted");
+                System.out.println("element at position" + pos + " has been deleted");
             }else{
                 // Count for the pos to be deleted, keep track of the previous node as it is needed to change currentNode.next
                 while (currentNode != null) {
                     if (counter == pos) {
                         prev.next = currentNode.next;
-                        System.out.println("element at " +pos + " has been deleted");
+                        System.out.println("element at " + pos + " has been deleted");
                         break;
                     } else {
                         prev = currentNode;
@@ -109,7 +109,7 @@ public class MySinglyLinkedList {
             }
         }
         if(pos>counter){
-            System.out.println("no node found at position:"+pos+ " ,as it greater than the size of the list");
+            System.out.println("no node found at position:"+ pos + " ,as it greater than the size of the list");
         }
 
     }
@@ -146,6 +146,11 @@ public class MySinglyLinkedList {
         System.out.println();
     }
 
+    /**
+     *
+     * @param list
+     * @return the size of the list
+     */
     public int size(MySinglyLinkedList list){
         int count=0;
         Node currNode = list.head;
