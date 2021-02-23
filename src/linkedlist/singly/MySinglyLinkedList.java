@@ -11,9 +11,9 @@ public class MySinglyLinkedList {
      *  This is a method static class defining a LinkedList Node.
      *  since it is static, main() method  can access it
      */
-    static class Node {
-        int data;
-        Node next;
+    public static class Node {
+        public int data;
+        public Node next;
         Node(int data)
         {
             this.data = data;
@@ -23,6 +23,8 @@ public class MySinglyLinkedList {
 
     /**
      * Insert a node to the given LinkedList
+     * This method will insert at head if the list is empty
+     * Or else, it will inset at last
      * @param list - LinkedList
      * @param data - node data
      */
@@ -44,6 +46,24 @@ public class MySinglyLinkedList {
             last.next = node;
         }
     }
+
+    /**
+     * This method will insert the new node after any given node.
+     * @param previousNode
+     * @param dataToBeInserted
+     */
+    public void insertAfter(Node previousNode, int dataToBeInserted)
+    {
+        if (previousNode == null)
+        {
+            System.out.println("The given previous node cannot be null");
+            return;
+        }
+        Node newNode = new Node(dataToBeInserted);
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
+    }
+
 
     /**
      * Delete a node by given data at the node.

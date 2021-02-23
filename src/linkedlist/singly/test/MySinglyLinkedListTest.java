@@ -66,6 +66,10 @@ public class MySinglyLinkedListTest {
 
         //size of the list
         System.out.println("size of the list at the end: " + list.size(list));
+
+        System.out.println("Add element 99 at 3rd position");
+        list.insertAfter(list.head.next,99 );
+        list.traverseAndPrintList(list);
     }
 
 }
