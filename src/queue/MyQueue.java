@@ -1,14 +1,14 @@
 package queue;
 
 class MyQueue {
-    private int[] arr;
+    private int[] array;
     private int front;
     private int rear;
     private int capacity;
     private int size;
 
     MyQueue(int size) {
-        arr = new int[size];
+        array = new int[size];
         capacity = size;
         front = 0;
         rear = -1;
@@ -19,12 +19,11 @@ class MyQueue {
      * dequeue from queue
      */
     public void dequeue() {
-        // check for queue underflow
         if (isEmpty()) {
-            System.out.println("Queue is empty");
+            System.out.println("Can't dequeue, Queue is empty");
             return;
         }
-        System.out.println("Removing " + arr[front]);
+        System.out.println("Dequeue:" + array[front]);
         front = (front + 1) % capacity;
         size--;
     }
@@ -35,12 +34,12 @@ class MyQueue {
      */
     public void enqueue(int item) {
         if (isFull()) {
-            System.out.println("Queue is full");
+            System.out.println("Can't enqueue, Queue is full");
             return;
         }
-        System.out.println("Enqueuing " + item);
+        System.out.println("Enqueuing:" + item);
         rear = (rear + 1) % capacity;
-        arr[rear] = item;
+        array[rear] = item;
         size++;
     }
 
@@ -72,23 +71,19 @@ class MyQueue {
      * @param args
      */
     public static void main(String[] args) {
-        // create a queue of capacity 5
-        MyQueue queue = new MyQueue(5);
-
+        MyQueue queue = new MyQueue(3);
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
-
+        queue.enqueue(4);
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
         queue.dequeue();
         System.out.println("The queue size is " + queue.size());
-
+        queue.enqueue(5);
+        System.out.println("The queue size is " + queue.size());
         queue.dequeue();
-        queue.dequeue();
-
-        if (queue.isEmpty()) {
-            System.out.println("The queue is empty");
-        } else {
-            System.out.println("The queue is not empty");
-        }
+        System.out.println("The queue size is " + queue.size());
     }
 }

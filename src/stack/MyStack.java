@@ -2,13 +2,13 @@ package stack;
 
 class MyStack
 {
-    private int arr[];
+    private int array[];
     private int top;
     private int capacity;
 
     MyStack(int size)
     {
-        arr = new int[size];
+        array = new int[size];
         capacity = size;
         top = -1;
     }
@@ -21,11 +21,11 @@ class MyStack
     {
         if (isFull())
         {
-            System.out.println("Stack is full\n");
+            System.out.println("Can't push the element, Stack is full");
             return;
         }
-        System.out.println("Inserting " + item);
-        arr[++top] = item;
+        System.out.println("Pushing: " + item);
+        array[++top] = item;
     }
 
     /**
@@ -35,11 +35,11 @@ class MyStack
     public int pop()
     {
         if (isEmpty()) {
-            System.out.println("Stack is empty");
+            System.out.println("Can't pop the element, Stack is empty");
             return -1;
         }
-        System.out.println("Popping top element");
-        return arr[top--];
+        System.out.println("Popping top element:"+array[top]);
+        return array[top--];
     }
 
     /**
@@ -68,20 +68,17 @@ class MyStack
 
     public static void main (String[] args) {
         MyStack stack = new MyStack(3);
-
         stack.push(1);
         stack.push(2);
-        stack.pop();
-        stack.pop();
         stack.push(3);
-
+        stack.push(4);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.push(5);
         System.out.println("The stack size is " + stack.size());
         stack.pop();
-        // check if the stack is empty
-        if (stack.isEmpty()) {
-            System.out.println("The stack is empty");
-        } else {
-            System.out.println("The stack is not empty");
-        }
+        System.out.println("The stack size is " + stack.size());
     }
 }
